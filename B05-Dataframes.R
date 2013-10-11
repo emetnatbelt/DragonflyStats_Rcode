@@ -1,5 +1,6 @@
 
-# creating a data frame
+################################################
+# Creating a more complex data frame
 
 A <- data.frame(
       name=c("a","b","c"),
@@ -12,4 +13,13 @@ A <- data.frame(
       x=c(2.2,3.3,4.4),
       date=as.Date(c("2004-04-04","2005-05-05","2006-06-06"))
 )
+#################################################
+
+# Characteristics of a Data Frame
+
+summary(A)
+dim(A)
+nrow(A) ; ncol(A)
+names(A)
+
 #################################################
