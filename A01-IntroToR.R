@@ -18,3 +18,13 @@ log(,b)     - logarithm to the base "b". The default setting is the natural log.
  
 factorial()       - computes factorials
 choose()         - computes binomial coefficients
+
+
+##############################
+Generating Sequences 
+R has a number of ways to generate sequences of numbers. 
+These include the simplest approach, using the the colon ":", e.g.
+
+> 1:10
+[1] 1 2 3 4 5 6 7 8 9 10
+
