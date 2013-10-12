@@ -9,3 +9,12 @@
  
 x<-14
 y<-8
+
+functions
+sqrt()      - square root
+abs()       - Absolute value 
+exp()	   - The exponential
+log(,b)     - logarithm to the base "b". The default setting is the natural log.
+ 
+factorial()       - computes factorials
+choose()         - computes binomial coefficients
