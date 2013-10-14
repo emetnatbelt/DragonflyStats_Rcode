@@ -1,0 +1,43 @@
+Statistical functions with R 
+Summary statistics
+Graphical procedures
+Inference procedures
+Other functions
+
+
+
+
+Special mathematical functions related to the beta and gamma functions.
+Usage
+
+beta(a, b)
+lbeta(a, b)
+
+gamma(x)
+lgamma(x)
+psigamma(x, deriv = 0)
+digamma(x)
+trigamma(x)
+
+choose(n, k)
+lchoose(n, k)
+factorial(x)
+lfactorial(x)
+
+
+ - simple statistical functions
+  - measures of centrality
+-mean(),median()
+- measures of variability
+-sd(), mad(), IQR()
+-range() returns a vector containing the minimum and maximum of all the given arguments. 
+-IQR() computes interquartile range of the x values.
+	    - quantiles
+
+ -var, cov and cor compute the variance of x and the covariance or correlation of x and y if these are vectors. If x and y are matrices then the covariances (or correlations) between the columns of x and the columns of y are computed.
+ -cov2cor scales a covariance matrix into the corresponding correlation matrix efficiently. 
+
+Pearson's Chi-squared Test for Count Data
+chisq.test performs chi-squared contingency table tests and goodness-of-fit tests.
+
+boxplots
