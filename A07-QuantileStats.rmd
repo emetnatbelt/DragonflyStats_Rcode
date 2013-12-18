@@ -1,10 +1,12 @@
 Quantile Statistics
-median
-quartiles
-percentiles
-Tukey Five Number summary
-quantile()
+===========================================
+- median
+- quartiles
+- percentiles
+- Tukey Five Number summary
+- quantile()
 
+### Example
 have to specify the percentile
 
 P( < ) = 075
