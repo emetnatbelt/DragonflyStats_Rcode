@@ -1,25 +1,33 @@
-Character Functions
+Character Functions in R
 ========================================================
 
-toupper(x)	Uppercase
-tolower(x)	Lowercase
+### Letters functtion
+
+### Case functions
+ - toupper(x)	Uppercase
+ - tolower(x)	Lowercase
 
 
-paste
+### paste
 
-sprintf
+### sprintf
 
-nhchar
+### nchar
 
-grep
+### grep
+
+### The sub and gsub functions
 
 <hr>
 
 Function	Description
 substr(x, start=n1, stop=n2)	Extract or replace substrings in a character vector.
+```{r}
 x <- "abcdef" 
-substr(x, 2, 4) is "bcd" 
-substr(x, 2, 4) <- "22222" is "a222ef"
+substr(x, 2, 4) # is "bcd" 
+substr(x, 2, 4) <- "22222" # is "a222ef"
+````
+### The grep function
 grep(pattern, x , ignore.case=FALSE, fixed=FALSE)	Search for pattern in x. If fixed =FALSE then pattern is a regular expression. If fixed=TRUE then pattern is a text string. Returns matching indices.
 grep("A", c("b","A","c"), fixed=TRUE) returns 2
 sub(pattern, replacement, x, ignore.case =FALSE, fixed=FALSE)	Find pattern in x and replace with replacement text. If fixed=FALSE then pattern is a regular expression.
