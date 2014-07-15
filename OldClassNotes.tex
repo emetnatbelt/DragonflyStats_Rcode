@@ -1,0 +1,287 @@
+Contents
+Introduction to R	3
+History of R	3
+The R Programming Language	3
+Using the Help functions	3
+Packages	3
+Objects	4
+Probability distributions	4
+Other Mathematical Functions	5
+Complex numbers	5
+Trigonometric  Functions	5
+Useful R commands for linear algebra	5
+Numerical methods	6
+More on Matrices	6
+Descriptive Statistics and Basic Graphical Methods	8
+Measures of Centrality and Dispersion	8
+Histograms	9
+Boxplots	9
+Stem and Leaf Plots	9
+Bivariate Data	9
+Simple Scatterplots, Correlation and Covariance	9
+Anscombe’s Quartet	9
+The uniform distribution	10
+Simulating a dice experiment	10
+The "apply" family of functions	10
+Discrete Probability Distributions	10
+Continuous Probability Distributions]	11
+The Normal distribution	11
+Iteration Loops	12
+Central Limit Theorem	12
+Gambler’s Ruin	13
+Markov Chains	14
+
+ 
+Introduction to R
+History of R
+
+The R Programming Language
+R is a flexible language that is object oriented and thus allows the manipulation of a complex
+data structures in a condensed and efficient manner.
+ 
+R's graphical abilities are also remarkable with possible interfacing with text processors such as
+Latex with the package sweave.
+R offers the addtional advantage of being a free and opensource system under the GNU general
+public licence.
+
+R is primarily a statistical language.
+R can be installed free of charge from www.r-project.org
+
+An online guide "An Introduction to R" can be access by typing
+help.start() at the command prompt to access this.
+
+Defining variables
+R is case sensitive.
+A convention is to use define a variable name with a capital letter.
+This reduces the chance of overwriting inbuild R functions, which are usually written in lowercase letters.
+
+
+Functions in R can be treated as "objects" that can be manipulated or used recursively.
+
+R shares many aspects with both Object orietnated and Functional programming langguages.
+all data in R is stored an objects, which have a range of "methods" available.
+The "class" of an object can be found using the class() function.
+Using the Help functions
+Embedded help commands "help()" and "help.search()" are good starting points to gather information. 
+Note that "help.search()" opens a web browser linked to the local manual pages.
+ 
+ 
+Packages 
+install.package("packagename")
+download.package("packagename")
+Objects
+As with many advanced programming languages, R distinguishes between several types of object. 
+Those types includes scalar, vector, matrix, time, series data frames functions and graphics.
+The R function str applied to any R onject, including R functions
+Probability distributions
+The discrete uniform distribution
+parameters: min , max.
+The default values are 0 and 1.
+ 
+Other Mathematical Functions
+
+Complex numbers
+x = -1 ;  sqrt(x)  ;  str(x) ; 	# variable is defined as numeric, not complex.
+y = -1 +0i ;  sqrt(y)  ;  str(y) ;    	#variable is defined as complex .
+Trigonometric  Functions
+pi				#returns the value of pi to six decimal places
+sin(3.5*pi)			# correct answer is -1
+cos(3.5*pi)			# correct answer is zero
+Useful R commands for linear algebra
+# Linear Algebra
+# construct a three-by-three matrix. Values entered by column.
+Mat1 = matrix(c(1,2,2,0,5,0,1,2,3),ncol=3)
+?matrix				# access the help function entry for “matrix”.
+Mat1				#print the matrix on the screen.
+dim(Mat1)			#determine the dimensions.
+Mat1 = t(Mat1) 		#transpose the matrix permanently.
+det(Mat1)			#calculate the determinant. Is it non-zero?
+solve(Mat1) 			#calculate the inverse.
+eigen(Mat1)			#compute eigenvalues and eigenvectors .
+names(eigen(Mat1))		# determine the name.
+eigen(Mat1)$values 		#access the eigenvalues.
+
+ 
+Numerical methods
+Matrrix “Mat2” is a positive definite symmetric matrix.
+Dvls = diag(Mat1)		# extract vector of the diagonal elements of 'Mat1'
+Dvls				#print to screen
+as.matrix(Dvls)			# display the vector in matrix form (3R1C)
+t(as.matrix(Dvls)		# transpose of above	(1R3C)
+Idty = diag(c(1,1,1))		# create the identity matrix
+Idty				#print to screen
+Dgnl = diag(diag(Mat1))	# create a 'D' matrix 	(courework: diagonalization)
+Dgnl				
+Dvls * Idty			# alternative method with scalar multiplication.
+				# N.B.  Dvls is a vector, not a matrix.
+Dgnl.inv = solve(Dgnl)		# invert the D matrix
+Dgnl.inv		
+Rmdr = Mat1 - Dgnl		# Compute the "Remainder" matrix (elementwise subtraction)
+# construct a positive definite symmetric three-by-three matrix
+Mat2 = matrix(c(1,3,1,3,13,7,1,7,6),ncol=3)
+chol(Mat2)			#Cholesky decomposition of Matrix A
+More on Matrices
+Note that the following commands are useful for Experimental Design.
+rowMeans(Mat1) 			#Returns vector of row means. 
+rowSums(Mat1) 			#Returns vector of row sums.  
+colMeans(Mat1) 			#Returns vector of column means.  
+colSums(Mat1) 				#Returns vector of coumn means.  
+If x and y are matrices then the covariances (or correlations) between the columns of x and the columns of y are computed.
+
+
+var( Mat1[,1] )			# determine the variance of the first column 
+var ( Mat1[,2] )			# determine the variance of the second column
+var ( Mat1[3,] )			# determine the variance of the third row
+cov ( Mat1[,1], Mat1[,2] )	# covariance of the first two columsn
+var ( Mat1)			# variance covariance matrix of all columns
+VCmat=var( Mat1)		# Save as matrix “VCmat”
+cor ( Mat1)			# correlation matrix of all columns
+cov2cor( VCmat)		#convert a VC matrix to a correlation matrix
+
+ 
+Descriptive Statistics and Basic Graphical Methods
+Measures of Centrality and Dispersion
+# Anscombe’s  Quartet
+X1 = c(
+Y1 =
+ 
+Histograms
+Boxplots
+A box plot provides an excellent visual summary of many important aspects of a distribution. 
+The box stretches from the lower hinge (defined as the 25th percentile) to the upper hinge (the 75th percentile) and therefore contains the middle half of the scores in the distribution.
+A boxplot, or box and whisker diagram, provides a simple graphical summary of a set of data. It shows a measure of central location (the median), two measures of dispersion (the range and inter-quartile range), the skewness (from the orientation of the median relative to the quartiles) and potential outliers (marked individually). 
+Boxplots are especially useful when comparing two or more sets of data. 
+# boxplot on a formula:
+boxplot.stats(count ~ spray, data = InsectSprays, col = "lightgray")
+# *add* notches (somewhat funny here):
+boxplot(count ~ spray, data = InsectSprays,        notch = TRUE, add = TRUE, col = "blue")
+
+Stem and Leaf Plots
+Bivariate Data 
+Simple Scatterplots, Correlation and Covariance
+X1 =
+Y1 =
+Plot(X1,Y1)
+cor(X1)
+cov(Y1)
+Anscombe’s Quartet 
+The uniform distribution
+
+Simulating a dice experiment
+Dice = runif(50,min=0,max=6)	
+Dice				#print the outcomes to screen
+floor(Dice)			#using the floor function
+ceiling(Dice)			# using the ceiling function
+Dice=ceiling(Dice)		#discretize the outcomes.
+mean(Dice)			# compute the mean of the outcomes (expected value).
+sd(Dice)			#compute the standard deviation of the outcomes.
+# More compact alternative, using the floor function. Note the changed parameters.
+Dice2=floor(runif(50,min=1,max=7))	
+
+Questions
+The expected value of a dice throw is 3.5. Is the sample mean close to this value?
+
+The "apply" family of functions
+ The Apply family of functions are 
+Discrete Probability Distributions
+
+The two most accessible discrete distributions are the binomial and poisson distributions
+The binomial distribution is characterized by the number of trials, which in R is denoted as ‘size’ rather than ‘n’, and the probability of success ‘prob’.
+rbinom(n=5,size=100,p=0.25)		#generate five random numbers
+
+The Poisson distribution is characterized the by the arrival rate ‘lambda’.
+rpois(n=5,lambda=4)			#generate five random numbers
+ 
+Simple population study.
+
+Suppose a small island has population 1,000 at the start of a decade. The birth rate on this island is expected to 25 births per annum, while there is on average 10 deaths.  Forecast the population after five years.
+
+Base = 1000
+Births =rpois(5,25)
+Deaths=rpois(5,10)
+Yrly.Incr =Births - Deaths
+Increase =cumsum(Yrly.Incr)
+Popn = Base + Births +Deaths
+
+Continuous Probability Distributions]
+
+The continuous uniform distribution is commonly used in simulation.
+The Normal distribution
+The normal distribution is perhaps the most w
+rnorm(n=15)				#15 random numbers, mean  = 0 , std. deviation = 1
+rnorm(n=15,mean= 17)			#set the mean to 17
+rnorm(n=15,mean= 17,sd=4)		#set the standard deviation to 4
+rnorm(15,17,4)				#argument matching : default positions
+
+
+The exponential distribution
+
+
+ 
+Iteration Loops
+Central Limit Theorem
+Recall the Dice experiment in week 8.
+
+N=100				#number of loops
+Avgs=numeric(N)		#array “Avgs” store the sample means
+for( i in 1:N)
+	{	Dice=floor(runif(50,min=1,max=7));	Avgs[i]=mean(Dice);
+	}
+Avgs				#print Avgs dataset to screen
+
+The Central limit theorem states that.
+The “Dice” distribution is a discrete uniform distribution. However 
+mean(Avgs)			#compute the mean. Is it roughly what we are expecting?
+qqnorm(Avgs)			#draws a QQ plot that is used to check for normality.
+qqline(Avgs)			#adds trend line to QQplot.
+shapiro.test(Avgs)		#Shapiro Wilk test. Normality is assumed if p-value > 0.05.
+			
+ 
+Gambler’s Ruin
+In anticipation of future material on course MS4217.
+ 
+Markov Chains
+In anticipation of future material on course MS4217.
+For the purposes of this course, we will assume the initial state is state 1.
+#Transition matrix “Tron”
+Tron = matrix (c(0.5,0.25,0.25,0.4,0.3,0.3,0.2,0.7,0.1),nrow=3,byrow=TRUE)
+rownames(Tron)=c("state1","state2","state3")
+colnames(Tron) = rownames(Tron)
+
+Assume that the process is currently in state 1. The uniform distribution can be used to compute a random value for probability.
+> runif(1)			#return one random value between 0 and 1
+[1] 0.6891122
+The outcome is between 0.5 and 0.75, therefore the process will migrate to state 2. If the probability value was less than 0.5, the process would have remained in state 1. If the probability was greater than 0.75, the  process would have migrated to state 3.
+
+Tron = matrix (c(0.5,0.25,0.25,0.4,0.3,0.3,0.2,0.7,0.1),nrow=3,byrow=TRUE)
+#check that each row totals is one.
+sum( Tron[1,]) == 1;  	sum( Tron[2,]) == 1 ; 	sum( Tron[3,]) ==1 ;
+#compute upper and lower ‘fences’ for each row.
+L1 =Tron[1,1];      	 U1 = Tron[1,1] + Tron[1,2];
+L2 =Tron[2,1];      	 U2 = Tron[2,1] + Tron[2,2];
+L3 =Tron[3,1]; 		U3 = Tron[3,1] + Tron[3,2];
+# inital conditions
+State = 1		#initial state
+N=4000			#number of loops
+Migrn = numeric(N)	#array that can be used to keep track of migrations
+Visits=numeric (3)	#array that counts the number of visits to each state
+ 
+
+for ( i in 1:N)
+{
+Migrn[i] = State			#record the state for phase i
+Visits[State] = Visits[State]+1		#update the number of visits made to each state
+Prob = runif(1)
+if (State==1){ 
+  	        if (Prob <= L1){State = 1};if (Prob > L1) {State = 2};if (Prob > U1) {State = 3};
+	        }
+ if (State==2){ 
+  	        if (Prob <= L2){State = 1};if (Prob > L2) {State = 2};if (Prob > U2) {State = 3};
+	     	       }
+if (State==3){ 
+  	        if (Prob <= L3){State = 3};if (Prob > L3) {State = 2};if (Prob > U3) {State = 3};
+	     	       }
+}	# complete the "for" loop
+Migrn			
+Visits			#how many visits were made to each state?
+
