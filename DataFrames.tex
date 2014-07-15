@@ -1,4 +1,21 @@
 Data Frames
+\subsection{Creating a Data Frame}
+\begin{framed}
+\begin{verbatim}
+A <- data.frame(
+         name=c("a","b","c"),
+         ownership=c("Case 1","Case 1","Case 2"),
+         listed.at=c("NSE",NA,"BSE"),
+              # Firm "b" is unlisted.
+         is.listed=c(TRUE,FALSE,TRUE),
+              # R convention
+              # boolean variables are named "is.something"
+         x=c(2.2,3.3,4.4),
+         date=as.Date(c("2004-04-04","2005-05-05","2006-06-06"))
+         )
+\end{verbatim}
+\end{framed}
+%-------------------------------------------------------------%
 Technically, a data frame in R is a very important type of data object;  a type of table where the typical use employs the rows as observations (or cases) and the columns as variables.
 Inter alia, a data frame differs from a matrix in that it can contain character values. 
 Many data sets are stored as data frames.
