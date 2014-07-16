@@ -1,5 +1,4 @@
 ###################################################
-# Segment 1A-1###################################################
 # Segment 1A-1
 
 # Preceding line with the symbol ’#’ makes it a comment in R
