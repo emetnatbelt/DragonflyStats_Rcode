@@ -148,9 +148,3 @@ Extreme value theory
  - Basic Theory
  - EVT distributions
  
-Anscombe's quartet is the name for a famous data set created by Frank Anscombe to illustrate the importance of plotting data.
-
-The mean for al four data sets is 9.00,3.32, 7.5,2.03
-the pearson's correlation coefficient is the same for all 
-
-
