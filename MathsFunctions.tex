@@ -1,0 +1,32 @@
+\section{Other Mathematical Functions}
+%-----------------------------------------------------------------------%
+Complex numbers
+x = -1 ;  sqrt(x)  ;  str(x) ; 	# variable is defined as numeric, not complex.
+y = -1 +0i ;  sqrt(y)  ;  str(y) ;    	#variable is defined as complex .
+%-----------------------------------------------------------------------%
+Trigonometric  Functions
+pi				#returns the value of pi to six decimal places
+sin(3.5*pi)			# correct answer is -1
+cos(3.5*pi)			# correct answer is zero
+
+%-----------------------------------------------------------------------%
+Useful R commands for linear algebra
+\begin{verbatim}
+
+# Linear Algebra
+# construct a three-by-three matrix. Values entered by column.
+Mat1 = matrix(c(1,2,2,0,5,0,1,2,3),ncol=3)
+?matrix				# access the help function entry for “matrix”.
+Mat1				#print the matrix on the screen.
+dim(Mat1)			#determine the dimensions.
+Mat1 = t(Mat1) 		#transpose the matrix permanently.
+det(Mat1)			#calculate the determinant. Is it non-zero?
+solve(Mat1) 			#calculate the inverse.
+eigen(Mat1)			#compute eigenvalues and eigenvectors .
+names(eigen(Mat1))		# determine the name.
+eigen(Mat1)$values 		#access the eigenvalues.
+\end{verbatim}
+
+\end{document}
+
+ 
