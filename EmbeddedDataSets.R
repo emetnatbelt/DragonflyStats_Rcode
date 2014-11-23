@@ -1,5 +1,10 @@
 # MS4024 Data Sets
 
+%==============================================================================%
+\begin{frame}
+\frametitle{Inbuilt Data Sets}
+\Large
+
 # Airmiles
 Cats
 Machines
@@ -10,11 +15,19 @@ ToothGrowth
 USArrests
 WorldPhones
  
+%==============================================================================%
+\begin{frame}
+\frametitle{Inbuilt Data Sets}
+\Large
 Airmiles
 diff.am = diff(airmiles)
 hist(diff.am)
 shapiro.test(diff.am)
  
+ %==============================================================================%
+\begin{frame}
+\frametitle{Inbuilt Data Sets}
+\Large
 Cats
 library(MASS)
 cats.F=cats[1:47,]
