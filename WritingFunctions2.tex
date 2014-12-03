@@ -1,0 +1,268 @@
+
+
+
+R Workshop
+
+Writing Basic Functions
+
+ 
+
+Writing Basic Functions
+
+A simple function can be constructed as follows:
+
+ 
+
+
+
+
+
+
+
+function_name <- function(arg1, arg2, ...){
+
+commands
+
+output
+
+}
+
+ 
+ 
+
+
+
+
+You decide on the name of the function. The function command shows R that you are writing a function. 
+
+Inside the parenthesis you outline the input objects required and decide what to call them. 
+
+The commands occur inside the { }.
+
+The name of whatever output you want goes at the end of the function. 
+
+Comments lines (usually a description of what the function does is placed at the beginning) are denoted by #.
+
+ Example
+
+
+
+
+
+
+
+
+
+
+sqr <- function(x){
+
+
+x^2
+
+
+}
+ 
+
+
+
+This function is called sqr. 
+
+It has one argument, called x.
+
+Whatever value is inputted for x will be squared and the result outputted to the screen. 
+
+This function must be loaded into R and can then be called.
+
+We can call the function using:
+
+
+
+
+
+
+
+
+sqr(x = 4)
+
+
+#sqr(4)
+
+
+[1] 16
+ 
+
+
+
+
+To store the result into a variable x.sq
+
+
+
+
+
+
+
+
+x.sq = sqr(x = 4)
+
+
+ # x.sq = sqr(4)
+
+
+> x.sq
+
+
+[1] 16
+ 
+
+
+
+
+More Complicated Example
+
+
+
+
+
+
+
+
+sf2 <- function(a1, a2, a3){
+
+
+x <- sqrt(a1^2 + a2^2 + a3^2)
+
+
+return(x)
+
+
+}
+
+ 
+ 
+
+
+
+
+
+This function is called sf2 with 3 arguments. 
+
+The values inputted for a1, a2, a3 will be squared, summed and the square root of the sum calculated and stored in x. 
+
+(There will be no output to the screen as in the last example.)
+
+The return command specifies what the function returns, here the value of x. 
+
+We will not be able to view the result of the function unless we store it.
+
+
+
+
+
+
+
+
+
+sf2(a1=2, a2=3, a3=4)
+
+
+sf2(2, 3, 4)                                                 # Can't see result.
+
+
+res = sf2(a1=2, a2=3, a3=4)
+
+
+res = sf2(2, 3, 4)                                        # Need to use this.
+
+
+res
+
+
+[1] 5.385165
+ 
+
+
+
+
+We can also give some/all arguments default values.
+
+
+
+
+
+
+
+
+
+mypower <- function(x, pow=2){
+
+x^pow
+
+}
+ 
+
+
+
+
+
+If a value for the argument pow is not specified in the function call, a value of 2 is used. If a value for “pow” is specified, that value is used.
+
+
+
+
+
+
+
+
+
+mypower(4)
+
+[1] 16
+
+mypower(4, 3)
+
+[1] 64
+
+mypower(pow=5, x=2)                                                         
+
+[1] 32
+
+ 
+ 
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+More Complex Functions
+
+The following function returns several values in the form of a list:
+
+
+myfunc <- function(x)
+
+{
+
+# x is expected to be a numeric vector
+
+# function returns the mean, sd, min, and max of the vector x
+
+the.mean <- mean(x)
+
+the.sd <- sd(x)
+
+the.min <- min(x)
+
+the.max <- max(x)
+
+return(list(average=the.mean,stand.dev=the.sd,minimum=the.min,
+
+maximum=the.max))
+
+}
+
+
