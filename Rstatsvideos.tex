@@ -1,0 +1,119 @@
+
+MS4024 Week 8 and 9 - Worksheet
+
+2 way Anova
+
+
+[UoL-EP Stats 2 Question 3 2006 Zone A]
+
+
+Three lubricants are testing using 15 different cars. Three cars are of brand A, Three from brand B, C, D and E.
+
+
+Each one of the three cars of each brand used a different lubricant.
+
+
+Testing took place on the same day and the top speeds in kilometres per hour acheived by each car without
+
+overheating was given in the following table.
+
+%======================================================%
+
+Lub1<-c(176,177,181,171,197)
+
+Lub2<-c(174,172,180,170,191)
+
+Lub3<-c(172,166,177,187,202)
+
+%======================================================%
+
+tab= cbind(Lub1,Lub2,Lub3)
+
+colnames(tab)=c("Lub1","Lub2","Lub3")
+
+rownames(tab)=c("A","B","C","D","E")
+
+%======================================================%
+
+anova(tab)
+
+
+Give the two way anova table
+
+is there a significant difference between top speeds achieved by the cars
+
+is there a significant difference between top speeds achieved by using different lubricants
+
+
+%======================================================%
+
+
+testA<-c(52,54,61,43,95)
+
+testB<-c(48,45,60,42,90)
+
+testC<-c(45,30,58,50,99)
+
+
+%======================================================%
+
+ 
+
+X=c(37, 44, 48, 51, 53, 56, 58, 60, 62, 63,65, 67, 69, 70, 72, 74, 76, 77, 79, 81,
+
+83, 86, 88, 91, 94, 97, 101, 106, 113, 127)
+
+
+hist(X,breaks=c(30,50,70,90,110,130))
+
+ 
+
+%======================================================%
+
+dice=c(rep(1,17),rep(2,16),rep(3,15),rep(4,19),rep(5,18),rep(6,15))
+
+mean(dice)
+
+sd(dice)
+
+median(dice)
+
+%======================================================%
+
+chisq.test(c(59,20,11,10))
+
+chisq.test(c(59,20,11,10), p=c(9/16,3/16,3/16,1/16))
+
+
+library(MASS)     # load the MASS package
+
+tbl = table(survey$Smoke, survey$Exer)
+
+%======================================================%
+
+\frametitle{Polynomial Regression}
+
+Abs<-c(0.084, 0.183, 0.326, 0.464, 0.643 ,0.671,0.701)
+
+Conc<-c(0.123, 0.288, 0.562, 0.921, 1.420,1.723,2.121)
+
+plot(Conc,Abs)
+
+fit1 = lm(Abs~Conc)
+
+Conc.sq = Conc^2
+
+fit2 = lm(Abs~Conc + Conc.sq)
+
+summary(fit1)
+
+summary(fit2)
+
+\end{frame}
+%======================================================%
+ 
+
+ 
+
+ 
+
