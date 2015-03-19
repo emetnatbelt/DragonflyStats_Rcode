@@ -1,5 +1,235 @@
 
+
 
+Module MS4024 Numerical Computation - R Component
+Introduction to Statistical Computing
+Introduction to R
+What is R?
+Using R
+Packages
+Defining Variables
+Using the Help functions
+
+Module MS4024 Numerical Computation - R Component
+
+My name is Kevin O'Brien ( email: kevin.obrien@ul.ie)
+
+This component is 50% of overall module.
+
+Your grade is based on 
+a) Project work , i.e. two projects with a combined mark of 25%
+b) Short in-class homeworks (10%)
+c) A short in-class exam (15%) at the end of the semester.
+
+Project 4a: Packages
+
+The first project  (worth 5%) is a short report on an R package (or group of R packages). 
+Alternatively you may write about a piece of mathematical
+or statistical software. You may research before the next class and propose your own project title. 
+
+Project 4b: Data Sets
+
+The second project is to write a report based on a group of allocated data sets, using analyses that are part of the syllabus for this module component. 
+
+You may choose you own data sets.  
+
+This project is worth 20% of the overall mark.
+
+All project work is due for completion and submission before the end of Review Week ( 6 pm Friday 27th April 2012 ) .
+
+Introduction to R
+
+R is the product of an active movement among statisticians for a powerful, programmable, portable, and open computing environment, applicable to the most complex and sophsticated problems, as well as“routine”analysis.
+ 
+There are no restrictions on access or use.
+
+
+Statisticians have implemented hundreds of specialised statistical procedures for a wide variety of applications as contributed packages, which are also freely-available and which integrate directly into R.
+
+ 
+R has data handling and storage facilities, a suite of operators for calculations on arrays in particular matrices. A large coherent integrated collection of intermediate tools for data analysis
+A large selection of demonstration datasets used in the illustration of many statistical methods.
+Graphical facilities for data analysis and display either directly.at the computes or on hardcopy.
+ 
+
+R is a flexible language that is object oriented and thus allows the manipulation of a complex data structures in a condensed and efficient manner.
+
+
+R's graphical abilities are also remarkable with possible interfacing with text processors such as Latex with the package sweave.
+
+R offers the addtional advantage of being a free and opensource system under the GNU general public licence.
+
+R is primarily a statistical language. R can be installed free of charge from www.r-project.org
+
+An online guide "An Introduction to R" can be access by typing help.start() at the command prompt to access this.
+
+R is a statistical Environment for statistical computing and graphics, which is available for windows, Unix and Mac OS platforms.
+
+R is maintained and distributed by an international team of statisticians and computers scientists.
+R is one of the major tools used in statistical research and in applications of statistics research.
+
+R is an open-source (GPL) statistical environment modeled after S and S-Plus. The S language was developed in the late 1980s at AT&T labs. The R project was started by Robert Gentleman and Ross Ihaka of the Statistics Department of the University of Auckland in 1995. It has quickly gained a widespread audience. 
+
+R is currently maintained by the R core-development team, a hard-working, international team of volunteer developers. 
+
+The R project web page ( http://www.r-project.org ) is the main site for information on R. At this site are directions for obtaining the software, accompanying packages and other sources of documentation.
+
+
+
+Using R
+R is most easily used in an interactive manner, typing code into the command line and R gives you an response. Questions are asked and answered on the command line. To start up R's command line you can do the following: in Windows find the R icon and double click. Other operating systems may have different ways.
+
+R can be started in the usual way by double-clicking on the R icon on the desktop.
+
+
+The > is called the prompt, used to indicate where you are to type. If a command is too long to fit on a line, a + is used for the continuation prompt.
+If a command is not complete at the end of a line, R will give the "+" prompt on second and subsequent lines and continue to read input until the command is syntactically complete.
+
+Commands are separated either by a semi-colon (;), or by a newline. Elementary commands can be grouped together into one compound expression by braces ({ and }). 
+
+Comments can be put almost anywhere, starting with a hashmark (#); everything after "#" is a comment.
+
+The R console opens with information and then a prompt mark  >  it is ready to accept commands.
+
+The Assignment operator
+
+The assignment operator is a "=". This is valid as of R version 1.4.0. Previously it was (and still can be) a "<-".
+Both will be used, although, you should learn one and stick with it.
+
+Defining Variables 
+R is case sensitive.
+A convention is to use define a variable name with a capital letter. This reduces the chance of overwriting inbuild R functions, which are usually written in lowercase letters.
+
+Commonly used variable names such as x,y and z (in lower case letters) are not "reserved".
+
+x = 2           # create variable x and assign the value 2
+y <- 4          # create variable y and assign the value 4
+5 -> z          # create variable z and assign the value 5
+
+x  #print x to screen
+y  #print y to screen
+z  #print z to screen
+
+The value of each variable is prefaced with a " [1] ". This indicates that the value is a vector. More on that later.
+
+
+
+
+
+Basic Calculations
+
+We will briefly look at how R accomplished basic calculations.
+
+
+x*y			# multiplication
+x/z			# division
+
+x^2			# powers
+sqrt(x)		# square root
+
+exp(z)		 # exponentials   
+log(y)		 # logarithms
+
+pi             # returns the value of pi to six decimal places
+
+ 
+Complex numbers , Trigonometric  Functions and Binomial Coefficients
+ 
+ 
+Binomial coefficients are computed using the choose() command.
+
+
+ 
+
+J = -1 ;  sqrt(J)  ;  str(J) ;      # variable is defined as numeric, not complex.
+K = -1 +0i ;  sqrt(K)  ;  str(K) ;  # variable is defined as complex .
+
+
+sin(3.5*pi)             # correct answer is -1
+cos(3.5*pi)             # correct answer is zero
+ 
+choose(6,2)             # From 6 how many ways of choosing items.
+ 
+Data Vectors
+
+x=c(1,3,4,5,6,7)
+y=c("R","G","B")
+
+ 
+
+
+
+
+Packages
+"R"contains one or more libraries of packages. Packages contain various functions and data sets for numerous purposes, e.g.survival package, genetics package, fda package, etc. Some packages are part of the basic installation. 
+R consists of a base package and many additional packages.
+
+Others can be downloaded from the Comprehensive R Archive Network (CRAN).
+
+To access all of the functions and data sets in a particular package, it must be loaded into the workspace. 
+
+For example, to load the fda package:
+
+> library(fda)
+
+One important thing to note is that if you terminate your session and start a new session with the saved workspace, you must load  the packages again
+
+
+
+install.packages("evir")
+ 
+To get out of R, just type: q(). 
+
+Using R's help commands
+
+R has an inbuilt help facility. To get more information on any specific named function, for example “boxplot”, the command is: ?boxplot
+
+
+?boxplot		# access help on boxplots
+help(Im)        # access help on "Im"
+
+
+On most R installations help is available in HTML format by running help.start() which will launch a Web browser that allows the help pages to be browsed with hyperlinks. 
+ 
+
+
+
+help.start()
+
+ 
+ 
+
+R was originally designed as a command language.  
+Commands were typed into a text-based input area on the computer screen and the program responded with a response to each command.
+
+R is an open source software package, meaning that the code written to implement the various functions can be freely examined and modified.
+R can be installed free of charge from the R-project website.
+
+An online manual in “An introduction to R” is available via the R help system. Type “help.start ()” at the command prompt to access it, R   has many features in common with functional and object oriented programming languages.
+
+
+
+In particular functions in R are treated as objects that can be manipulated or used recursively, example TSA book3
+
+In common with functional languages, assignments in R can be avoided, but they are useful for clarity and convenience. In addition R runs faster when loops are avoided, which can often be achieved using matrix calculation instead however, thus results in obscure looking code.
+
+
+Functions in R can be treated as "objects" that can be manipulated or used recursively.
+
+R shares many aspects with both Object orietated and functional programming languages. all data in R is stored an objects, which have a range of "methods" available. The "class" of an object can be found using the class() function.
+Using the Help functions
+
+Embedded help commands "help()" and "help.search()" are good starting points to gather information.
+Note that "help.search()" opens a web browser linked to the local manual pages.
+ 
+
+R works best if you have a dedicated folder for each separateproject - called the working folder.Create the directory/folder that will be used as the working folder, e.g. create a folder on your desktop titled Your_name by right-clicking, then clicking New > Folder. 
+ 
+Right-click on an existing R icon and click Copy.   In the working folder, right-click and click Paste. The R icon will appear in the folder. As with many advanced programming languages, R distinguishes between several types of object. Those types includes scalar, vector, matrix, time, series data frames functions and graphics. The R function str applied to any R onject, including R functions.To start R in Windows, double click the R icon. To start R in Unix or Linux, type ‘R’ at the command prompt. 
+
+
+
+%================================================================================================
 Section 1: Basic R commands and Functions
 Installing R on your computer
 Editing your Data
