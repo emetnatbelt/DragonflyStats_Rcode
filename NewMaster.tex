@@ -1,0 +1,826 @@
+
+
+Section 1: Basic R commands and Functions
+Installing R on your computer
+Editing your Data
+Getting help in R
+Manipulating Characters
+Objects
+Packages
+Logical and Relational Operators
+Generating Random Numbers
+Section 2: Basic Mathematical operations
+Trigonometric and power functions
+Integration
+Complex numbers
+Matrices and Linear Algebra
+Factorials and permutations
+Section 3 : Data Structures
+Vectors, Arrays and Matrices
+Lists
+Frames
+Indexing
+Subsetting
+Section 4 : Regression models
+Simple Linear Regression
+Multiple Linear Regression
+Non Linear Regression
+Quadratic Regression
+Histogram: sample code
+Data Management
+Vector Functions
+Section 6: Simulation and Probability Distributions
+Probability Distributions
+Probability
+Truncation and discretization
+Creating New Functions
+Argument Matching
+Section 8: Hypothesis Tests
+The Correlation Test
+The Chi Square Test
+The Chi Square Test for Independence
+The PropTest
+The F Test
+The Kolmogorov Smirnov Test
+The Anderson Darling Test
+The t-test
+The ANOVA F-Test
+Section 9: Graphics
+Graphics Parameters
+Trellis Graphs
+Customizing Trellis Graphics
+Section 10: Simulation
+Simulation Study : Random Walks
+Simulation Study: Distribution of pairwise maxima and minima
+Simulation Study : Gamblers Ruins
+Simulation Study: Probability of Gambler Ruin
+
+Section 1: Basic R commands and Functions
+Installing R on your computer
+R can be easily downloaded from the Comprehenive R Archive Network (CRAN) website.
+Editing your Data
+
+x=c(0 ,5)     	      # create a vector x
+data.entry(x)  	   # edit the values using spreadsheet interface.
+x  	                     # print to screen
+x=edit(x)	          # the 'edit' function to call the script editor
+x  	                     # print to screen
+
+Getting help in R
+R has a built-in help facility. To get more information on any specific function, e.g. sqrt(), the command is
+> help(sqrt)
+An alternative is
+> ? sqrt
+We can also obtain help on features specified by special characters.
+The argument must be enclosed in single or double quotes (e.g. "[[")
+> 
+Help is also available in HTML format by running
+> help.start()
+
+
+
+help (sqrt)   	      # create a vector x
+?exp  	   		  # edit the values using spreadsheet interface.
+help("[[")	         # print to screen
+
+Manipulating Characters
+> nchar("oscar")
+[1] 5
+
+Objects
+During an R session, objects are created and stored by name. The command "ls()" displays all currently-stored objects (workspace). Objects can be removed using the "rm()" function.
+
+
+
+ls()
+rm(x, a, temp, wt.males)
+rm(list=ls())								#removes all of the objects in the workspace.
+
+
+At the end of each R session, you are prompted to save your workspace. If you click Yes, all objects are written to the ".RData" file. 
+When R is re-started, it reloads the workspace from this file and the command history stored in ".Rhistory" is also reloaded.
+Packages
+One of the strengths of R is the possibility to add functionalities to the base system by means of add-on packages. Simply put, a package is a coherent set of functions and
+data.
+ 
+
+
+Base packages
+Base packages are considered part of the R source code. These packages contain the basic functions that allow R to work, and include many commonly used datasets and standard statistical and graphical functions. They should be automatically available in any R installation.
+
+
+To see which packages are installed on your computer, use the library() command, with no arguments.
+
+Contributed packages
+Hundreds of contributed packages covering a wide array of modern statistical methods are available from the Comprehensive R Archive Network (CRAN; http: //cran.r-project.org).
+
+To access all of the functions and data sets in a particular package, it must be loaded into the workspace. 
+For example, to load the lattice package:
+> library(lattice)
+
+To remove a package from a session, use the detach command
+>detach(package:lattice)
+
+Packages must be reloaded at the start of each new session.
+
+
+library(MASS)							  #loads the MASS package
+
+install.packages("evir")			#install the "evir" package (select the Irish CRAN Mirror)
+library(evir)
+
+Logical and Relational Operators
+Logical operators
+
+ ==
+Equality
+ ! = 
+ not equal to
+ < 
+Less Than
+ >=
+ greater than or equal to
+>
+Greater Than
+ <=
+ Less than or equal to
+ 
+
+
+Generating Random Numbers
+R is very useful for performing simulations.
+
+
+runif(1)										 #generate a random number between 0 and 1
+runif(4,min=0,max=6) 			  #generate four random numbers between 0 and 6
+
+Random numbers can be discretized using the "floor()" or "Ceiling()" functions. Suppose we wish to simulate four throws of a dice.
+
+X = ceiling (runif(4,min=0,max=6))
+Y = floor (runif(4,min=1,max=7))
+X+Y
+
+
+Section 2: Basic Mathematical operations
+Trigonometric and power functions
+
+Integration
+
+integrate(sin, lower =0, upper = 3)
+integrate(dnorm, -1.96, 1.96)					 # standard normal distribution
+integrate(dnorm, 0, Inf)							   # standard normal distribution
+
+Complex numbers 
+
+Matrices and Linear Algebra
+Factorials and permutations
+The Choose Function
+
+63=654321= 20
+
+
+
+> factorial(6)
+[1] 720
+> choose(6,3)
+[1] 20
+> 
+
+
+
+
+Section 3 : Data Structures
+Vectors, Arrays and Matrices
+
+Lists
+
+Frames
+
+Indexing
+
+Subsetting
+
+Section 4 : Regression models
+
+Simple Linear Regression
+
+
+Summary of SLR
+
+
+SLR analysis involves
+
+Creating a scatterplot to determine the nature of the relationship between x and y
+
+If the relationship is linear, measuring the strength of the relationship using the correlation coe cient
+
+Fitting the best model by estimating parameter values from data
+
+There are always lots of di erent possible models to describe a given data set
+
+Using diagnostic plots of the residuals to check the adequacy of the fitted model. Must check for non-constant variance and non-normal errors.
+
+If the relationship is non-linear, t e.g. polynomial, exponential, non-linear model and use predict to generate the fitted curve for plotting
+
+
+
+lm (y ~ x)
+Multiple Linear Regression
+variable selection procedures
+
+Backward Selection
+
+Forward Selection
+
+Stepwise Selection
+Non Linear Regression
+Quadratic Regression
+
+
+
+
+
+Histogram: sample code
+x <- rnorm(1000) 
+hx <- hist(x, breaks=100, plot=FALSE) 
+plot(hx, col=ifelse(abs(hx$breaks) < 1.669, 4, 2)) 
+
+# What is cool is that "col" is supplied a vector.
+
+Data Management
+
+Creating New Variables
+Operators
+Built-in Functions
+Control Structures
+User-defined Functions
+Sorting Data
+Merging Data
+Aggregating Data
+Aggregating Data
+Reshaping Data
+Subsetting Data
+Data Type Conversion
+Vector Functions
+
+range(x) 	    # range
+sum(x) 		  # sum
+min(x)	        # minimum
+max(x)	       # maximum
+diff(x, lag=2)   # lagged differences, with lag indicating which lag to use
+Section 6: Simulation and Probability Distributions
+Probability Distributions
+  
+Distribution
+R name
+Additional Arguments
+beta
+beta
+shape1, shape2, ncp
+binomial
+binom
+size, prob
+Cauchy
+cauchy
+location, scale
+Chi-squared
+chisq
+df, ncp
+exponential
+exp
+rate
+F
+f
+df1, df2
+geometric
+geom
+prob
+hypergeometric
+hyper
+values m,n,k
+normal
+norm
+mean,sd
+Poisson
+pois
+lambda
+Student's
+r
+df,ncp
+uniform
+unif
+min,max
+Weibull
+weibul
+shape,scale
+Wilcoxon
+wilcox
+m,n
+
+
+
+
+
+
+Probability
+ Simulation Study: Simulating dice throws
+
+  
+
+
+X = runif(100,0,6)
+
+Truncation and discretization
+
+The functions "floor" and "ceiling" can be used to discretize outcomes. In this instance we should use "ceiling".
+
+ceiling(X)
+floor(X)
+round(X,2)
+
+X=ceiling(X)
+
+ 
+
+The expected value is 3.5.
+
+The variance from first principles we can calculate the variance using
+  
+
+
+
+
+
+ 
+
+Creating New Functions
+ 
+A simple function can be constructed as follows:
+
+ 
+function_name <- function(arg1, arg2, ...){
+commands
+output
+}
+
+ 
+You decide on the name of the function.
+The function command shows R that you are writing a function.
+Inside the parenthesis you outline the input objects required and decide what to call them.
+The commands occur inside the { }.
+The name of whatever output you want goes at the end of the function.
+Comments lines (usually a description of what the function does is placed at the beginning) are denoted by #.
+ 
+
+
+sf1 <- function(x){
+x^2
+}
+
+
+This function is called sf1. It has one argument, called x. Whatever value is inputted for x will be squared and the result outputted to the screen. This function must be loaded into R and can then be called.
+
+ 
+Load the function into R by highlighting the code and clicking the Paste button in RWinEdt.
+Type ls() into the console. Note that the function now appears. Can call the function using:
+ 
+
+
+sf1(x = 3) sf1(3)
+[1] 9 [1] 9
+
+
+
+ 
+To store the result into a variable x.sq
+
+
+
+x.sq <- sf1(x = 3) x.sq <- sf1(3)
+> x.sq
+[1] 9
+ 
+sf2 <- function(a1, a2, a3){
+x <- sqrt(a1^2 + a2^2 + a3^2)
+return(x)
+}
+
+
+
+ 
+This function is called sf2 with 3 arguments. The values inputted for a1, a2, a3 will be squared, summed and the square root of the sum calculated and stored in x. (There will be no output to the screen as in the last example.) The return command speci es what the function returns, here the value of x. Will not be able to view the result of the function unless you store it.
+ 
+sf2(a1=2, a2=3, a3=4) sf2(2, 3, 4) # Can't see result.
+res <- sf2(a1=2, a2=3, a3=4) res <- sf2(2, 3, 4) # Need to use this.
+res
+[1] 5.385165
+ 
+Argument Matching
+ 
+How does R know which arguments are which? Uses argument matching.  Argument matching is done in a few different ways.
+ 
+The arguments are matched by their positions. The rst supplied argument is matched to the rst formal argument and so on, e.g. when writing sf2 we speci ed that a1 comes rst, a2 second and a3 third. Using sf2(2, 3, 4) assigns 2 to a1, 3 to a2 and 4 to a3.
+ 
+The arguments are matched by name. A named argument is matched to the formal argument with the same name, e.g.
+sf2 arguments have names a1, a2 and a3. Can do things like sf2(a1=2, a3=3, a2=4), sf2(a3=2, a1=3, a2=4), etc.
+ 
+Name matching happens first, then positional matching is used for any unmatched arguments.
+ 
+
+Can also give some/all arguments default values.
+ 
+mypower <- function(x, pow=2){
+x^pow
+}
+ 
+If a value for the argument pow is not speci ed in the function call, a value of 2 is used.
+ 
+
+
+mypower(4)
+[1] 16
+
+
+
+
+ 
+If a value for pow is specified, that value is used.
+ 
+
+
+
+mypower(pow=5, x=2)
+[1] 32
+ 
+
+
+
+
+The following function returns several values in the form of a list:
+
+
+
+myfunc <- function(x)
+{
+# x is expected to be a numeric vector
+# function returns the mean, sd, min, and max of the vector x
+the.mean <- mean(x)
+the.sd <- sd(x)
+the.min <- min(x)
+the.max <- max(x)
+return(list(average=the.mean,stand.dev=the.sd,minimum=the.min,
+maximum=the.max))
+}
+ 
+
+
+
+x <- rnorm(40)
+res <- myfunc(x)
+res
+$average
+[1] 0.29713
+$stand.dev
+[1] 1.019685
+$minimum
+[1] -1.725289
+$maximum
+[1] 2.373015
+
+
+
+
+
+
+ 
+
+
+To access any particular value use:
+res$average
+[1] 0.29713
+res$stand.dev
+[1]1.019685
+
+
+
+
+
+
+
+ 
+Section 8: Hypothesis Tests
+
+The Correlation Test
+
+cor.test(X,Y)
+
+
+The Chi Square Test
+
+
+
+
+
+The Shapiro Wilk Test
+
+The Shapiro Wilk Test is another test for distribution test
+
+
+
+
+
+The Chi Square Test for Independence
+
+
+
+
+
+The PropTest
+
+
+
+
+
+The F Test
+
+
+
+
+
+The Kolmogorov Smirnov Test
+
+X = rnorm(5,1,5)
+Y = rexp(5)
+ks.test(X,Y)
+
+
+The Anderson Darling Test
+
+
+
+
+
+
+The t-test
+
+
+
+
+
+
+
+The ANOVA F-Test
+
+ 
+Section 9: Graphics
+
+
+Graphics Parameters
+Trellis Graphs
+Trellis graphs are avialable throught the lattice package. A trellis graph displays a variable or the relationship between variables, conditioned on one or more other variables. Trellis graphs are available for a wide variety of plot types.
+The typical format is
+graph_type(formula, data=)
+where graph_type is selected from the listed below. formula specifies the variable(s) to display and any conditioning variables . For example ~x|A means display numeric variable x for each level of factor A. y~x | A*B means display the relationship between numeric variables y and x separately for every combination of factor A and B levels.~x means display numeric variable x alone.
+graph_type
+description
+formula examples
+barchart
+bar chart
+x~A or A~x
+bwplot
+boxplot
+x~A or A~x
+cloud
+3D scatterplot
+z~x*y|A
+contourplot
+3D contour plot
+z~x*y
+densityplot
+kernal density plot
+~x|A*B
+dotplot
+dotplot
+~x|A
+histogram
+histogram
+~x
+levelplot
+3D level plot
+z~y*x
+parallel
+parallel coordinates plot
+dataframe
+splom
+scatterplot matrix
+dataframe
+stripplot
+strip plots
+A~x or x~A
+xyplot
+scatterplot
+y~x|A
+wireframe
+3D wireframe graph
+z~y*x
+Here are some examples. They use the car data (mileage, weight, number of gears, number of cylinders, etc.) from the mtcars dataframe.
+# Trellis Examples 
+library(lattice) 
+attach(mtcars)
+
+# create factors with value labels 
+gear.f<-factor(gear,levels=c(3,4,5),
+   labels=c("3gears","4gears","5gears")) 
+cyl.f <-factor(cyl,levels=c(4,6,8),
+   labels=c("4cyl","6cyl","8cyl")) 
+
+# kernel density plot 
+densityplot(~mpg, 
+   main="Density Plot", 
+   xlab="Miles per Gallon")
+
+# kernel density plots by factor level 
+densityplot(~mpg|cyl.f, 
+   main="Density Plot by Number of Cylinders",
+   xlab="Miles per Gallon")
+
+# kernel density plots by factor level (alternate layout) 
+densityplot(~mpg|cyl.f, 
+   main="Density Plot by Numer of Cylinders",
+   xlab="Miles per Gallon", 
+   layout=c(1,3))
+
+# boxplots for each combination of two factors 
+bwplot(cyl.f~mpg|gear.f,
+   ylab="Cylinders", xlab="Miles per Gallon", 
+   main="Mileage by Cylinders and Gears", 
+   layout=(c(1,3))
+
+# scatterplots for each combination of two factors 
+xyplot(mpg~wt|cyl.f*gear.f, 
+   main="Scatterplots by Cylinders and Gears", 
+   ylab="Miles per Gallon", xlab="Car Weight")
+
+# 3d scatterplot by factor level 
+cloud(mpg~wt*qsec|cyl.f, 
+   main="3D Scatterplot by Cylinders") 
+
+# dotplot for each combination of two factors 
+dotplot(cyl.f~mpg|gear.f, 
+   main="Dotplot Plot by Number of Gears and Cylinders",
+   xlab="Miles Per Gallon")
+
+# scatterplot matrix 
+splom(mtcars[c(1,3,4,5,6)], 
+   main="MTCARS Data")
+
+ 
+click to view
+Note, as in graph 1, that you specifying a conditioning variable is optional. The difference between graphs 2 & 3 is the use of the layout option to contol the placement of panels.
+
+Customizing Trellis Graphics
+
+
+Unlike other R graphs, the trellis graphs described here are not effected by many of the options set in the par( ) function. To view the options that can be changed, look athelp(xyplot). It is frequently easiest to set these options within the high level plotting functions described above. Additionally, you can write functions that modify the rendering of panels. Here is an example.
+# Customized Trellis Example
+library(lattice)
+panel.smoother <- function(x, y) {
+  panel.xyplot(x, y) # show points 
+  panel.loess(x, y)  # show smoothed line 
+}
+attach(mtcars)
+hp <- cut(hp,3) # divide horse power into three bands 
+xyplot(mpg~wt|hp, scales=list(cex=.8, col="red"),
+   panel=panel.smoother,
+   xlab="Weight", ylab="Miles per Gallon", 
+   main="MGP vs Weight by Horse Power")
+
+
+
+
+Section 10: Simulation
+
+Simulation Study : Random Walks
+
+
+
+P = 0.5 					#probability of a move to the right
+Q = 1-P; S=Q/P;
+
+Posn =0;N= 200;Trkr=numeric(N);Orgn=0; 
+
+for (i in 1:N)
+	{
+	Trkr[i]=Posn
+	if (P < runif(1)) Posn=Posn+1 else Posn=Posn-1
+	if(Posn==0) Orgn=c(Orgn,i)
+	}
+
+
+plot(Trkr,type="o")
+abline(h=0, col="red")
+diff(Orgn)
+Rogn = sort(diff(Orgn))
+length(Rogn)
+summary(as.factor(Rogn))
+summary(as.factor(Rogn))[[1:10]]
+
+Simulation Study: Distribution of pairwise maxima and minima
+
+
+
+n=20
+X<-rnorm(n) ; Y = rnorm(n); 
+Mn =numeric(n) ;Mx = numeric(n);
+for( i in 1:n)
+{
+W[i]=min(X[i],Y[i])
+Z[i]=max(X[i],Y[i])
+}
+
+cbind(X,Y,W,Z)
+
+
+
+
+Simulation Study : Gamblers Ruins
+P = 0.55
+A = 25
+K = 40
+N = 1000
+M = 1000
+
+Trk.A=numeric(N)
+Trk.K=numeric(N)
+Gamb.Win=0
+Bank.Win=0
+Dron=numeric(M)
+
+for (j in 1:M){
+for (i in 1:N)
+{
+Trk.A[i]=A;Trk.K[i]=K
+if (P > runif(1)) {A=A+1;K=K-1;} else {A=A-1;K=K+1;}
+if (A == -1) {break}
+if (K == -1) {break}
+Dron[j]=i
+}
+}
+
+
+Trk.A= Trk.A[1:i]
+Trk.K= Trk.K[1:i]
+
+plot(Trk.A, ylim= c(-5,A+K+5),type="l",col="red")
+points(Trk.K,,type="l",col="green")
+abline(h=0 , lty =2 )
+abline(h=0 ,lty=2)
+abline(h=A+K, lty=2)
+abline(v=0)
+
+
+
+Simulation Study: Probability of Gambler Ruin
+P = 0.51;  N = 2000; M = 5000; A.c = 15; K.c=15	#subscripts added to indicate constant values.
+
+Gamb.Win=0;Bank.Win=0;Dron=numeric(M);
+
+for (j in 1:M){
+	A = A.c;K = K.c;			#reset to constant values for the start of each game
+	for (i in 1:N)
+	{
+	if (P > runif(1)) {A=A+1;K=K-1;} else {A=A-1;K=K+1;}
+	if (A == -1) {Bank.Win = Bank.Win +1; break; }
+	if (K == -1) {Gamb.Win = Gamb.Win +1; break;}
+	Dron[j]=i
+	}
+
+}
+Dron
+##
+
+
+
+Simulation Study: estimating a quantile from a probability distributions
+
+
+
+N = 2000 #number of Loops
+n = 200 #size of each sample
+
+Qvec = numeric(N)
+Q = 0.975
+
+for (i in 1:N){
+X = rnorm(n)
+Qtl = quantile (X,Q)
+Qvec[i] = Qtl
+}
+
+Qvec
+
+mean(Qvec)
+# Alternative method
+
+# Qtls[i] =quantile(rnorm(n),Q)
+
