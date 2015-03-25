@@ -1,16 +1,22 @@
-4 Packages
+\section{ Packages }
+%--------------------------------------------------- %
 4.1 Packages
-A Package in R is a le containing a collection of objects which have some common purpose.
+%--------------------------------------------------- %
+A Package in \texttt{R} is a le containing a collection of objects which have some common purpose.
 Packages enhance the capabilties and scope for research in a certain eld. For example the
-package MASS contains objects associated with the Venables and Ripleys "Modern Applied
-Statistics with S". Some examples of packages are Actuar, written for actuarial science, and
-QRMlib, which complements the Quantitative Risk Management The command library()
+package MASS contains objects associated with the Venables and Ripleys "\textbf{Modern Applied
+Statistics with S}". Some examples of packages are Actuar, written for actuarial science, and
+QRMlib, which complements the Quantitative Risk Management.
+
+The command library()
 lists all the available packages. To load a particular package, for example MASS, we would
 write
 library(MASS)
-4.2 Using and Installing packages
+%--------------------------------------------------- %
+\subsection{ Using and Installing Packages }
 Many packages come with R. To use them in an R session, you need to load the package, as
 previously demonstrated.
+%--------------------------------------------------- %
 Some packages are not automatically installed when you install R but they need to be down-
 loaded and installed individually. We must rst install them using the install.packages()
 function, which typically downloads the package from CRAN and installs it for use. (follow the
@@ -20,8 +26,7 @@ install.packages("qcc")
 install.packages("sqldf")
 install.packages("RMongo")
 install.packages("randomforest")
-4.2.1 Version of R
+\subsection{ 4.2.1 Version of R }
 Many packages will require you to have the most recent version of R and also other packages.
 It is a good idea to update regularly.
-13
-Coding Grace A Taste of R 8th June 2013
+ \end{document}

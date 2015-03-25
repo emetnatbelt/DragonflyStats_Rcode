@@ -1,11 +1,16 @@
-3 Inspecting a Data Set
- dim()
- nrow() and ncol()
- names()
- summary()
- tail()
- head()
- describe() (from the psych package)
+%=========================================================================================%
+
+\section{Inspecting a Data Set}
+\begin{itemize}
+	\item dim()
+	\item nrow() and ncol()
+	\item names()
+	\item summary()
+	\item tail()
+	\item head()
+	\item describe() (from the psych package)
+\end{itemize}
+%=========================================================================================%
 3.1 Dimensions of a data set
 We have remarked that some data sets are very large. This is perhaps a good place to consider
 summary information about data objects. For a simple vector, a useful command to determine
@@ -13,7 +18,7 @@ the length (remark: sample size) is the function length().
 > Y=4:18
 > length(Y)
 [1] 15
-For more complex data sets ( and data frames which we will see later) , we have several
+For more complex data sets ( such as data frames,  which we will see a lot of later) , we have several
 tools for assessing the size of data.
 > dim(iris) # dimensions of data set
 [1] 150 5
@@ -22,17 +27,19 @@ tools for assessing the size of data.
 > ncol(iris) # number of columns
 [1] 5
 11
-Coding Grace A Taste of R 8th June 2013
+
 We can also determine the row names and column names using the functions rownames()
-and colnames(). If there are no specic row or column names, the command will just return
+and colnames(). If there are no specific row or column names, the command will just return
 the indices.
 > colnames(iris)
 [1] "Sepal.Length" "Sepal.Width" "Petal.Length" "Petal.Width" "Species"
+%=========================================================================================%
 3.2 The summary() command
-The command summary() is one of the most useful commands in R. It is a generic function used
+The command \texttt{summary()} is one of the most useful commands in R. It is a generic function used
 to produce result summaries of the results of various functions. The function invokes particular
-methods which depend on the class of the rst argument. In other words, R picks out the most
+methods which depend on the class of the first argument. In other words, R picks out the most
 suitable type of summary for that data.
+
 > summary(iris)
 Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 Min. :4.300 Min. :2.000 Min. :1.000 Min. :0.100 setosa :50
@@ -42,30 +49,39 @@ Mean :5.843 Mean :3.057 Mean :3.758 Mean :1.199
 3rd Qu.:6.400 3rd Qu.:3.300 3rd Qu.:5.100 3rd Qu.:1.800
 Max. :7.900 Max. :4.400 Max. :6.900 Max. :2.500
 >
-Summary is particularly useful for manipulating data from more complex data objects.
-3.3 Structure of a Data Object
+\texttt{summary()} is particularly useful for manipulating data from more complex data objects.
+
+%=========================================================================================%
+\subsection{3.3 Structure of a Data Object}
 The structure, class and storage mode of an object can be determined using the following
 commands. Try out a few.
- str()
- class()
- mode()
-> class(Nile)
-[1] "ts"
-> mode(Nile)
-[1] "numeric"
->
-> a
-12
-Coding Grace A Taste of R 8th June 2013
-[1] 6
-> mode(a)
-[1] "numeric"
-> class(a)
-[1] "numeric"
-> str(a)
-num 6
->
-> class(iris)
-[1] "data.frame"
-> mode(iris)
-[1] "list"
+\begin{itemize}
+	\item str()
+	\item class()
+	\item mode()
+\end{itemize}
+\begin{framed}
+	\begin{verbatim}
+	> class(Nile)
+	[1] "ts"
+	> mode(Nile)
+	[1] "numeric"
+	>
+	> a
+	[1] 6
+	>
+	> mode(a)
+	[1] "numeric"
+	> class(a)
+	[1] "numeric"
+	> str(a)
+	num 6
+	>
+	> class(iris)
+	[1] "data.frame"
+	> mode(iris)
+	[1] "list"
+	\end{verbatim}
+\end{framed}
+%==================================================================================================%
+\end{document}
