@@ -1,7 +1,23 @@
 %========================================================================================%
 \begin{frame}[fragile]
 \frametitle{Chi-Square Test}
-In the built-in data set survey, the Smoke column records the students smoking habit, while the Exer column records their exercise level. The allowed values in Smoke are "Heavy", "Regul" (regularly), "Occas" (occasionally) and "Never". As for Exer, they are "Freq" (frequently), "Some" and "None".
+In the built-in data set survey, the Smoke column records the students smoking habit, while the 
+Exer column records their exercise level. 
+
+\end{frame}
+%========================================================================================%
+\begin{frame}[fragile]
+\frametitle{Chi-Square Test}
+\textbf{Levels}
+\begin{itemize}
+\item The allowed values in Smoke are "Heavy", "Regul" (regularly), "Occas" (occasionally) and "Never". 
+\item As for Exer, they are "Freq" (frequently), "Some" and "None".
+\end{itemize}
+\end{frame}
+%========================================================================================%
+\begin{frame}[fragile]
+\frametitle{Chi-Square Test}
+
 We can tally the students smoking habit against the exercise level with the table function in R. 
 
 The result is called the contingency table of the two variables.
@@ -28,6 +44,7 @@ Test the hypothesis whether the students smoking habit is independent of their e
 Solution
 We apply the chisq.test function to the contingency table tbl, and found the p-value to be 0.4828.
 
+\begin{framed}
 \begin{verbatim}
 > chisq.test(tbl) 
  
@@ -39,9 +56,14 @@ X-squared = 5.4885, df = 6, p-value = 0.4828
 Warning message: 
 In chisq.test(table(survey$Smoke, survey$Exer)) : 
   Chi-squared approximation may be incorrect
+ \end{frame}
+ \end{framed}
 %========================================================================================%
 \begin{frame}[fragile]
 \frametitle{Chi-Square Test}
 Solution
 Answer
 As the p-value 0.4828 is greater than the .05 significance level, we do not reject the null hypothesis that the smoking habit is independent of the exercise level of the students.
+ \end{frame}
+%========================================================================================%
+\end{document}
