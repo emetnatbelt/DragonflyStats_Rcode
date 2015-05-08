@@ -1,4 +1,5 @@
 R is an open-source statistical package based on the S language. It is a powerful computing tool that combines the usefulness of a statistical analysis package with that of a publication quality graphics package and a matrix-based programming language. It's easy enough to use for quick and simple tasks, yet powerful enough for the most demanding ones. The goal of this demonstration is to provide a basic introduction to using R. An R session differs from that of other statistical software. You will find it to be an interactive approach where the results from one step lead to the next. This introduction to R is necessarily limited in scope to only a handful of analyses. Once you become familiar with R and browse through some of the online help topics, you will discover tools for practically any type of analysis you need. S-PLUS is a commercial application also based on the S language. Much of R is identical to the command line useage of S-PLUS. There are differences though in some functions and their arguments so existing S-PLUS code may require some modification to run in R. 
+%================================================================================================== %
 Topics included in this tutorial: 
 1. Starting R the first time
 2. Some things to keep in mind
@@ -10,29 +11,38 @@ Topics included in this tutorial:
 8. Writing functions
 9. What to do next 
 Return to Mercury Home Page 
-
+%======================================================================================================== %
 1. Starting R the first time
 
 
 When running R from the computer lab, your M drive will be the working directory where your work will be saved by default. You can easily change to another directory at any time by selecting Change Dir... from the File menu. 
 You can save your work at any time. Select Save Workspace from the File menu. You will usually save the workspace in the working directory. When you quit R you will be prompted to save your workspace. 
-
+%======================================================================================================= %
 2. Some things to keep in mind
 
 
 Everything in R is some kind of object. Objects can have different modes (numeric, character, list, function, etc.) with different structures (scalar, vector, matrix, etc.) and different classes (data frame, linear models result, etc.). 
 Almost every command you execute in R uses one or more functions. Functions are called by their name followed by a set of parentheses. If any arguments are passed to the function, they are listed within the parentheses. The parentheses must always be present whether or not there are any arguments. For example, to get a listing of all the objects in your working directory, you would use objects(). If you wanted a list of objects in another directory in your search path, you might use objects(where=3). 
+
 Use the assignment operator to create objects. The assignment operator is the "less than" symbol followed by a hyphen ( <- ). With S-PLUS you can use the underscore for the assignment operator, but that will not work with R. Apparently the equal sign can be used, but then that will not work in S-PLUS. The best practice is to use the less than and hyphen for assignments. For example, to create an object called tmp and assign it the value 3, you would enter tmp <- 3. The equal sign (=) is mainly used for passing arguments to functions, like the last command in comment b above. 
+
 R is case sensitive. Keep that in mind when you're naming objects or calling functions. We could create another object called Tmp that would be separate and distinct from tmp. 
+
 If you already have an object with the name tmp and you assign something else to an object with that name, then the first object is overwritten. Be careful not to lose something you want to keep. 
+
 Once you've created objects, you may want to get rid of them later. Use the function rm() with the object names as arguments. For example, rm(tmp). 
+
 You can recall previous commands with the up-arrow and down-arrow keys. Once you've located the command you want, you can hit enter to execute the command as is, or you can edit the line first. This can save time, especially with complicated commands. 
+
 Open a graphics window with the function win.graph(). 
+
 Make use of the online help. Select HTML Help from the Help menu, click on Packages, then click on Graphics and look up win.graph. You'll find a description of all possible arguments that can be used, a full discussion on its use, and some examples of how it can be used. If you just need a reminder of what arguments can be passed to a particular function, use the args() function with the function name in the parentheses. For example, try args(win.graph) to see what arguments can be used with that function and what default values they may have. Most common functions can be found in the Base package. 
+
 In the examples that follow, pay very close attention to all associated punctuation. Things like commas and parentheses are absolutely critical to R understanding what you want to do. If you get an error after executing a command, the first thing to do is check the syntax. That is the cause of most errors. R almost always ignores spaces, so whether you type tmp<-c(1,2,3) or tmp <- c ( 1, 2, 3), you get the same result. 
 The Escape key serves as your abort button. If something goes wrong or you're suddenly seeing an endless array of numbers scrolling by, you can hit the Escape key to quit whatever you're doing and get you back to the command prompt. This does not kick you out of R altogether. 
 The command line interface in R uses a red font to show your input and a blue font to show results. I've tried to duplicate that in the examples in this tutorial. 
 
+%======================================================================================================== %
 3. Beginning an analysis
 
 
@@ -76,6 +86,8 @@ Take a look at vel to see that it has been changed. There are a couple ways to c
 Note the order that the row and column are referenced: first the row, then the column. Data frames also allow us to reference individual columns by their names. This is done with the name of the data frame, followed by a dollar sign, and the name of the column. So the vel data can be referenced as df$vel. Now we can change the fourth element like this: 
 > df$vel[4] <- 2.666
 Note that df$vel is a vector so we only need one number in the brackets. Let's take another look at df to be sure we have it right this time. 
+\begin{framed}
+\begin{verbatim}
 > df
     conc   vel 
 1 0.3330 3.636
@@ -85,19 +97,28 @@ Note that df$vel is a vector so we only need one number in the brackets. Let's t
 5 0.0208 2.114
 6 0.0104 1.466
 7 0.0052 0.866
+\end{verbatim}
+\end{framed}
 Looks good! We could have created this data frame in other ways. If the data were already entered into a spreadsheet, database, or ASCII file, you could import it using the appropriate commands. Alternatively, you could create a data frame using a spreadsheet-like interface right in R. From the Edit choose Data Editor... and follow the prompts. You can use the fix() command to edit existing data frames. 
 Now we're ready to do an analysis.
 
+%======================================================================================================== %
 4. Visualizing your data
 
 
 The first thing we want to do is plot the data. You can easily get a basic plot with the following:
+
 > plot(df$conc, df$vel)
-The first vector given is the independent variable to be plotted on the X-axis, the second is the dependent variable for the Y-axis. If you execute a plotting function and there is no active graphsheet, a default graphsheet will be opened for you. If you then do another plot, the first one will be lost and the new plot will be drawn in the same graphics window. You can keep your first plot by opening another graphsheet by typing: 
+
+The first vector given is the independent variable to be plotted on the X-axis, the second is the dependent variable for the Y-axis. If you execute a plotting function and there is no active graphsheet, a default graphsheet will be opened for you. If you then do another plot, the first one will be lost and the new plot will be drawn in the 
+same graphics window. You can keep your first plot by opening another graphsheet by typing: 
+
 > win.graph()
+
 The default is a square graphsheet. You can create portrait graphsheets, landscape graphsheets, any shape you want. Check win.graph in the help files to see how. 
 We're going to look at 3 different ways to analyze these data: simple linear regression, non-linear regression, and polynomial regression. 
 
+%======================================================================================================== %
 5. Simple Linear Regression
 
 
@@ -116,13 +137,22 @@ Now we are ready to fit our regression model. We'll use the function lm(), which
 > lmfit <- lm(ytrans~conc, data=df)
 By default, you will get an error if there are any missing values in your data when you run this function. If this happens, you may want to omit those cases that contain missing values and fit the model on the remaining cases. To do so, run the same function with an argument to specify the desired action. 
 > lmfit <- lm(ytrans~conc, data=df, na.action=na.omit)
+
+%======================================================================================= %
+
 This might make more sense if you know that R designates missing values by NA. Now let's look at this function call. The desired model is specified with ytrans~conc. Think of the tilde as an equal sign when specifying a model. ytrans is our response, so it goes on the left side. conc is our explanatory variable, so it goes on the right. An intercept term is assumed so you do not need to include it in the model definition. However, it is possible to force a zero intercept if you wanted. 
 Notice that there was not any output automatically generated when you fit the regression. The results have been saved in an object we called lmfit. This object is actually a list that contains several objects, which you can see with the function names() 
-> names(lmfit)
+\begin{framed}
+	\begin{verbatim}
+	> names(lmfit)
  [1] "coefficients"  "residuals"     "effects"       "rank"      
  [5] "fitted.values" "assign"        "qr"            "df.residual"  
  [9] "xlevels"       "call"          "terms"         "model"  
+\end{verbatim}
+\end{framed}
 Any of these terms can be viewed or used with the same method you used to view a variable in a data frame: object name, followed by a dollar sign, then the element name. For example, lmfit$call. If you want to view most of the standard regression output, use the summary() function: 
+\begin{framed}
+\begin{verbatim}
 > summary(lmfit)
 
 Call:
@@ -142,6 +172,8 @@ Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
 Residual standard error: 0.0009071 on 5 degrees of freedom
 Multiple R-Squared: 0.9993,     Adjusted R-squared: 0.9991 
 F-statistic:  7006 on 1 and 5 DF,  p-value: 4.612e-09 
+\end{verbatim}
+\end{framed}
 You can also easily view diagnostic plots (residuals, observed vs fitted, Cook's distance, etc.): 
 > plot(lmfit)
 R knows that this is the output from a linear model and will generate the appropriate plots. How does it know? Check to see what class it is: 
@@ -167,11 +199,14 @@ The last thing we have to do is back-calculate to get our non-linear parameters,
 0.01657589 
 Remember that the output from the coef function is a vector of length 2 so we can access the desired coefficient using the brackets as shown. We now have our parameter estimates! 
 
+%======================================================================================================== %
 6. Non-linear Regression
 
 
 We can also directly fit the Michaelis-Menten function to our data using non-linear regression. Remember the term "sum-of-squares" from your old regression class? When you fit a regression model, you get a "fitted value" for every data point used to fit the model. If you take the difference between the fitted value and the observed value, you get what we call a residual. Then if you square all the residuals and add them up, you get the residual sum-of-squares. The smaller that is, the better the model fits your data. You may have heard this called the least-squares method. Well, non-linear regression works the same way. With non-linear regression, we specify the form of the model we want to fit and the parameters that need to be estimated. R then searches for parameter values that will minimize the residual sum-of-squares. 
 To run the analysis, we use the function nls(), which stands for non-linear least squares. Use the summary() function to view the results. 
+\begin{framed}
+\begin{verbatim}
 > nlsfit <- nls(vel~Vm*conc/(K+conc),data=df, start=list(K=0.0166, Vm=3.852))
 > summary(nlsfit)
 
@@ -189,13 +224,22 @@ Residual standard error: 0.06719 on 5 degrees of freedom
 Correlation of Parameter Estimates:
         K
 Vm 0.7535 
+\end{verbatim}
+\end{framed}
+
 You can view the estimates for K and Vm from the summary output, or you can use the coef() function again. How do the estimates compare with those from the previous analysis? We want to plot our non-linear fit to see how well it matches the data. First, plot the original variables again. Remember to create a new graphsheet if you want to keep your previous graph. 
 > plot(df$conc, df$vel, xlim=c(0,0.4), ylim=c(0,4))
+
+
+%======================================================================================================== %
 There's something new here. We used the xlim and ylim arguments to specify the limits for the x and y axes, respectively. By default, R will set the limits just enough to plot all the data. Sometimes you may want to plot beyond the data if you're going to add other things later or just to make the plot look a little better. 
 To add the model fit to the plot is going to take a little more work than with simple linear regression. The x-axis on our plot goes from 0 to 0.4, so we're going to need to generate a vector that covers this range and then calculate a y-value for each x-value using the parameters we just estimated. The number of x-values you generate will determine how smooth the line is going to look. You will almost always get a smooth line with 100 x-values. 
 > x <- seq(0, 0.4, length=100)
 This does just what you think it does. It generates a sequence of 100 numbers from 0 to 0.4. Now we calculate the associated y-values: 
 > y2 <- (coef(nlsfit)["Vm"]*x)/(coef(nlsfit)["K"]+x)
+
+
+%======================================================================================================== %
 This shows you another way that you can reference elements in a vector. If the elements are named, you can use that in the brackets instead of its position number. There's another way to get our y-values for the plot that's perhaps the simplest. We'll use the function predict() that will predict fitted response values for a given set of x-values. The function wants the x-values in a dataframe and with the same variable name(s) as the original data. Here's how we do it: 
 > y2 <- predict(nlsfit,data.frame(conc=x))
 The function predict() can be used with results from linear models, non-linear models, and generalized linear models. Check the online help to see all it can do. Now to add the line to our plot: 
@@ -206,14 +250,19 @@ I'm sure you noticed I called the y-values y2. This is the fit from our second m
 For this to work, you must have created the objects Vm and K as we did in the previous section. Also note that we used the line type argument (lty) for a dotted line and the color argument (col) to get a different color. Here is what the resulting plot should look like: 
 
 
-7. Polynomial Regression
+%======================================================================================================== %
+\section*{7. Polynomial Regression}
 
 
 The last method we'll use to fit these data is polynomial regression, where the model takes on the form y = b0 + b1x + b2x2 + b3x3 + ... , etc. We're going to fit a second order polynomial like this: 
+\begin{framed}
+\begin{verbatim}
 > polyfit2 <- lm(vel~conc+I(conc^2), data=df)
 We're using the same function lm() as linear regression, but we're adding multiple instances of the explanatory variable to generate our polynomial formula. Note that we need to use the identity function, I(), because the caret (^) has special meaning in a formula. Another way to build this formula is to create a matrix where each column contains the explanatory variable raised to a power. Use the function cbind() to bind columns together to form a matrix. This is what that would look like: 
 > polyfit2a <- lm(vel~cbind(conc, conc^2), data=df)
 Run either of these commands and view the summary or just take a look at the coefficients: 
+\begin{framed}
+\begin{verbatim}
 > coef2 <- coef(polyfit2)
 > coef2
 (Intercept)        conc   I(conc^2) 
@@ -225,6 +274,8 @@ There's something new with this line. You can enter the entire command on a sing
 There are a couple ways to generate the y-values for the line. Perhaps the most straightforward is the following: 
 > y3 <- coef2[1] + coef2[2]*x + coef2[3]*x^2
 We just plug in the coefficients and the appropriate x-values and we're done. There's another way that doesn't involve so much typing, especially when dealing with higher order polynomials. It involves matrix multiplication so hopefully you remember something about linear algebra. We're going to create a matrix of x-values and then multiply that by our coefficient vector. 
+\begin{framed}
+\begin{verbatim}
 > y3 <- cbind(1,x,x^2) %*% coef2
 You saw the function cbind() just a second ago. (FYI: There is also a function called rbind() that binds vectors together as rows instead of columns.) The operator %*% is used for matrix multiplication. Add the line to the graph: 
 > lines(x,y3)
@@ -239,7 +290,8 @@ When you add the lines, you will see several warnings go by because some of the 
 
 It's a good fit (the line goes through every point) but how useful is it for predicting new points? Take a look at the summaries from each fit. Ever seen an R2 of 1 before? 
 
-8. Writing functions
+%======================================================================================================== %
+\section*{8. Writing functions}
 
 
 The last thing we're going to look at is what really makes R powerful: writing your own functions. If you do something once it's not a problem to type in each command as we've done here. But if you frequently do some particular task, it would be nice to automate it so that it could be done with a single command. In calculating the y-values for the polynomial lines for our graph, we used the cbind() function with a term for each column. If you were going to do this a lot with large order polynomials, you might want to automate the task of creating this matrix. Open a text editor, such as Notepad, where you will write your function. Here is a listing of one way to write this function: 
