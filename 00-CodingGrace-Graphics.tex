@@ -1,11 +1,19 @@
-\chapter { R Graphics}
-\section Enhancing your scatter plots
+\chapter{ R Graphics}
+\section{Enhancing your scatter plots}
 \subsection{Adding lines}
 Previously we have used scatter plots to plot bivariate data. They were constructed using the plot() command.
 Recall that we can use the arguments \texttt{xlim} and \texttt{ylim} to control the vertical and horizontal range of the plots, by specifying a two element vector (min and max) for each.
 
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
 Using the \texttt{abline()} command, we can add lines to our scatter plots. We specify the argument according to the type of line required. A demonstration of three types of line is provided below.
 Additionally we change the colour of the added lines, by specifying a colour in the \texttt{col} argument. We can also change the line type to one of four possible types, using the \texttt{lty} argument.
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
 
 The line types are follows
 \begin{itemize}
@@ -14,7 +22,12 @@ The line types are follows
 	\item	\texttt{lty =3}   Dotted line
 	\item	\texttt{lty =4}   Dash-dot line
 \end{itemize}
-\footnotesize \begin{verbatim}
+\footnotesize 
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+\begin{verbatim}
 x=rnorm(10)
 y=rnorm(10)
 plot(x,y)
@@ -23,6 +36,10 @@ abline(v =0 , lty =2 )    # add a vertical dotted line (here the y-axis) to the 
 abline(h=0  ,lty =3)    # add a horizontal dotted line (here the x-axis) to the plot
 abline(a=0,b=1,col="green") # add a line to your plot with intercept "a" and slope "b"
 \end{verbatim}\normalsize
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
 
 \subsection{Changing your plot character}
 
@@ -33,13 +50,23 @@ plot(x,y,pch=15,col="red")		#Square plot symbols
 plot(x,y,pch=16,col="green")		#Orb plot symbols
 plot(x,y,pch=17,col="mauve")		#Triangular plot symbols
 plot(x,y,pch=36	,col="amber")		#Dollar sign plot symbols
-\end{verbatim}\normalsize
+\end{verbatim}
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+\normalsize
 Recall that we can add new variates to an existing scatterplot using the points() function. Remember to set the vertical and horizontal limits accordingly.
 \footnotesize \begin{verbatim}
 y1 = rnorm(10); y2 = rnorm(10)
 plot(x,y1, pch=8,col="purple" ,xlim=c(-5,5),ylim=c(-5,5))
 points(x,y2,pch=12,col="green")
 \end{verbatim}\normalsize
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+
 \subsection{Adding the regression model line}
 
 The \texttt{abline()} function can be used to add a regression model line  by supplying as an argument the \texttt{coef()} values for intercept and slope estimates .These estimates can be inputted directly by using both functions in conjunction.
@@ -48,7 +75,9 @@ The \texttt{abline()} function can be used to add a regression model line  by su
 Fit1 =lm(y1~x);  coef(Fit1)
 abline(coef(Fit1))	
 \end{verbatim}\normalsize
-
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
 \subsection{Adding a title }
 
 It is good practice to label your scatterplots properly. You can specify the following argument
