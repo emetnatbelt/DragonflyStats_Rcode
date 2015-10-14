@@ -1,28 +1,30 @@
+```{r}
 head()
 length()
 rbind()
 cbind()
-
+```
 x=c(x,16)
 
 adding a value
 deleting a value
 x=x[-9]
 
+
 commenting #######
 
 
-basic R editor
+### basic R editor
  - new script
  - updating script
  - running script
  -
 
-Introduction to R
+### Introduction to R
  - What is R
  - History of R
 
-Simple R Programming
+### Simple R Programming
  - Important R functions
   - help()
   - summary()
@@ -44,7 +46,7 @@ mode() - storage mode of a data object( data structure)
 
 The expression as(object, value) is the way to coerce an object to a particular class. 
 
- - vectors
+### vectors
 
 vector produces a vector of the given length and mode.
 as.vector, a generic, attempts to coerce its argument into a vector of mode mode (the default is to coerce to whichever mode is most convenient).
@@ -78,16 +80,14 @@ is.vector returns TRUE if x is a vector of the specified mode having no attribut
 
 Pearson's Chi-squared Test for Count Data
 chisq.test performs chi-squared contingency table tests and goodness-of-fit tests.
-
-
-more data structures
+### more data structures
  - lists
   	- list() Functions to construct, coerce and check for both kinds of R lists. 
  - vectors
  - dataframes
  - 
 
-Packages
+### Packages
  - What are pacakges
 	- extending the program
  - where are packages to be found
