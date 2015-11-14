@@ -11,15 +11,23 @@
 	\item describe() (from the psych package)
 \end{itemize}
 %=========================================================================================%
-3.1 Dimensions of a data set
+\subsection*{3.1 Dimensions of a data set}
 We have remarked that some data sets are very large. This is perhaps a good place to consider
 summary information about data objects. For a simple vector, a useful command to determine
-the length (remark: sample size) is the function length().
+the length (remark: sample size) is the function \length{length()}.
+%================================%
+\begin{framed}
+\begin{verbatim}
 > Y=4:18
 > length(Y)
 [1] 15
+\end{verbatim}
+\end{framed}
 For more complex data sets ( such as data frames,  which we will see a lot of later) , we have several
 tools for assessing the size of data.
+%================================%
+\begin{framed}
+\begin{verbatim}
 > dim(iris) # dimensions of data set
 [1] 150 5
 > nrow(iris) # number of rows
@@ -28,18 +36,27 @@ tools for assessing the size of data.
 [1] 5
 11
 
-We can also determine the row names and column names using the functions rownames()
-and colnames(). If there are no specific row or column names, the command will just return
+\end{verbatim}
+\end{framed}
+
+We can also determine the row names and column names using the functions \texttt{rownames()}
+and \texttt{colnames()}. If there are no specific row or column names, the command will just return
 the indices.
+\begin{framed}
+\begin{verbatim}
 > colnames(iris)
 [1] "Sepal.Length" "Sepal.Width" "Petal.Length" "Petal.Width" "Species"
+
+\end{verbatim}
+\end{framed}
 %=========================================================================================%
-3.2 The summary() command
+\subsection*{3.2 The summary() command}
 The command \texttt{summary()} is one of the most useful commands in R. It is a generic function used
 to produce result summaries of the results of various functions. The function invokes particular
 methods which depend on the class of the first argument. In other words, R picks out the most
 suitable type of summary for that data.
-
+\begin{framed}
+\begin{verbatim}
 > summary(iris)
 Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 Min. :4.300 Min. :2.000 Min. :1.000 Min. :0.100 setosa :50
@@ -49,6 +66,9 @@ Mean :5.843 Mean :3.057 Mean :3.758 Mean :1.199
 3rd Qu.:6.400 3rd Qu.:3.300 3rd Qu.:5.100 3rd Qu.:1.800
 Max. :7.900 Max. :4.400 Max. :6.900 Max. :2.500
 >
+
+\end{verbatim}
+\end{framed}
 \texttt{summary()} is particularly useful for manipulating data from more complex data objects.
 
 %=========================================================================================%
