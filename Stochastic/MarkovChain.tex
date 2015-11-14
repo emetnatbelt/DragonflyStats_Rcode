@@ -5,7 +5,8 @@ For the purposes of this course, we will assume the initial state is state 1.
 Tron = matrix (c(0.5,0.25,0.25,0.4,0.3,0.3,0.2,0.7,0.1),nrow=3,byrow=TRUE)
 rownames(Tron)=c("state1","state2","state3")
 colnames(Tron) = rownames(Tron)
-
+\end{verbatim}
+%=================================================================================%
 Assume that the process is currently in state 1. The uniform distribution can be used to compute a random value for probability.
 > runif(1)			#return one random value between 0 and 1
 [1] 0.6891122
@@ -25,6 +26,7 @@ Migrn = numeric(N)	#array that can be used to keep track of migrations
 Visits=numeric (3)	#array that counts the number of visits to each state
  
 
+%=================================================================================%
 for ( i in 1:N)
 {
 Migrn[i] = State			#record the state for phase i
@@ -42,4 +44,8 @@ if (State==3){
 }	# complete the "for" loop
 Migrn			
 Visits			#how many visits were made to each state?
+\end{verbatim}
+\end{framed}
+%=================================================================================%
+
 
