@@ -9,7 +9,7 @@
 \item \texttt{break} statements
 \end{itemize}
 %----------------------------------------------------------------------------%
-1.	Grouping, loops and conditional execution
+\subsection{1.	Grouping, loops and conditional execution}
 R is an expression language in the sense that it’s only command type is a function or expression which returns a result. 
 
 Even an assignment is an expression whose result is the value assigned, and it may be used wherever any expression may be used; in particular multiple assignments are possible. 
@@ -19,7 +19,7 @@ Commands may be grouped together in braces, {expr_1; ...; expr_m}, in which case
 Since such a group is also an expression it may, for example, be itself included in parentheses and used a part of an even larger expression, and so on.  
 
 %----------------------------------------------------------------------------%
-2.	Conditional execution: the if Statement
+\subsection*{2.	Conditional execution: the if Statement}
 
 The if statement has the form 
 
@@ -70,8 +70,9 @@ comparisons1 <- function(number)
 
 
 %------------------------------------------------------------------------------------%
-The following demonstrates the use of “if ... else if ... else”
+The following demonstrates the use of “\texttt{if ... else if ... else}”
 
+\begin{verbatim}
 comparisons2 <- function(number)
   {
   if (number == 0)
@@ -86,6 +87,7 @@ comparisons2 <- function(number)
       cat(number,"is negative\n")
       }
   }
+ \end{verbatim}
 %------------------------------------------------------------------------------------%
 
 
@@ -110,14 +112,14 @@ comparisons3 = function(number)
 
 
 Using the function, we get
-
+\begin{verbatim}
 > comparisons3(-1)
 -1 is not between 0 and 10
 > comparisons3(3)
 3 is between 0 and 10
 > comparisons3(9)
 9 is between 0 and 10
-
+\end{verbatim}
 %--------------------------------------------------------------------------------------------------------------%
 A vectorized version of the if statement is ifelse. This is useful if you want to perform some action on every element of a vector that satisfies some condition.
 
@@ -126,10 +128,10 @@ ifelse( condition, true expr, false expr )
 
 If condition == TRUE, the true expression is carried out. 
 If condition == FALSE, the false expression is carried out.
-
+\begin{verbatim}
 x = rnorm(20, mean=15, sd=5)
 ifelse(x >= 17, sqrt(x), 0)
-
+\end{verbatim}
 
 
 %---------------------------------------------------------------------------%
@@ -140,12 +142,13 @@ Repetitive execution: for loops, while loops and repeat loops.
 
 To loop/iterate through a certain number of repetitions a for loop
 is used. The basic syntax is
-
+\begin{verbatim}
 for(variable_name in sequence) {
 command
 command
 command
 }
+\end{verbatim}
 
 A simple example of a for loop is:
 
@@ -161,7 +164,7 @@ print(sqrt(i))
 
 We can also have nested for loops. Indenting your code can be useful
 when trying to “match" brackets.
-
+\begin{verbatim}
 for(variable_name1 in sequence) 
 {
 command
@@ -173,7 +176,7 @@ for(variable_name2 in sequence)
     command
     } # ends inner for loop
 } # ends outer for loop
-
+\end{verbatim}
 It should be noted that variable_name2 should be different from
 variable_name1, e.g. use i and j. Using the same name will
 reset the counter each time and result in an infinite loop!!
@@ -194,6 +197,7 @@ command
 The loop continues while condition == TRUE.
 What is the number of iterations that can go without 20 being selected.
 
+\begin{verbatim}
 niter = 0		
 num = sample(1:100, 1)
 while(num != 20) 
@@ -202,8 +206,9 @@ while(num != 20)
     niter = niter + 1
    }
 niter
+\end{verbatim}
 
-Next, break and repeat Statements
+\subsection*{Next, break and repeat Statements}
 The next statement can be used to discontinue one particular iteration of any loop, i.e. this iteration is ended and the loop “skips" to the next iteration. They are useful if you want a loop to continue even if an error is found (error checking).
 
 The break statement completely terminates a loop. Useful if you want a loop to end if an error is found, or if a condition is satisfied.
