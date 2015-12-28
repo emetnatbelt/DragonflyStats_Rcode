@@ -9,6 +9,10 @@ about the nature of the relationship between the variables, e.g. if
 the relationship is linear, curvilinear, or no relationship exists.
 Read the data from the file SLRex1.txt into a data frame called
 SLR1.
+\end{frame}
+%=====================================================================%
+\begin{frame}[fragile]
+\frametitle{Scatterplot}
 SLR1 <- read.table("C:/.../SLRex1.txt", header=T)
 SLR1
 x y
@@ -33,16 +37,26 @@ plot(x=SLR1$x, y=SLR1$y, main="Scatterplot")
 OR
 attach(SLR1)
 plot(x=x, y=y, main="Scatterplot")
-(The attach command makes the variables in the data frame
-SLR1 accessible by name rather than using the $ notation). Need
+\end{frame}
+%=====================================================================%
+\begin{frame}[fragile]
+\frametitle{Scatterplot}
+\begin{itemize}
+\item (The attach command makes the variables in the data frame
+SLR1 accessible by name rather than using the $ notation). 
+\item Need
 to be careful as if there are other variables in use with the same
-names as those in the data frame, R will get confused. When
+names as those in the data frame, R will get confused. 
+\item When
 finished working with SLR1, need to use detach(SLR1).
-
+\end{itemize}
+\end{frame}
+%=====================================================================%
+\begin{frame}[fragile]
+\frametitle{Scatterplot}
 There is clearly a positive linear relationship between x and y. As x
 increases y also increases. No obvious outliers. SLR is appropriate
 here.
 \end{frame}
 %=====================================================================%
-\begin{frame}[fragile]
-\frametitle{Scatterplot}
+\end{document}
