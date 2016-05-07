@@ -1,11 +1,5 @@
 
-\subsection{Logarithmic  Transformation}
 
-If data deviate substantially from a Gaussian distribution, using a nonparametric test is not the only alternative. Consider transforming the data to create a Gaussian distribution. Transforming to reciprocals or logarithms are often helpful.
-Data can fail a normality test because of the presence of an outlier. Removing that outlier can restore normality.
-The decision of whether to use a parametric or nonparametric test is most important with small data sets (since the power of nonparametric tests is so low). But with small data sets, normality tests have little power to detect non-normal distributions, so an automatic approach would give you false confidence.
-
-With large data sets, normality tests can be too sensitive. A low p-value from a normality test tells you that there is strong evidence that the data are not sampled from an ideal normal distribution. But you already know that, as almost no scientifically relevant variables form an ideal normal distribution. What you want to know is whether the distribution deviates enough from the normal ideal to invalidate conventional statistical tests (that assume a Gaussian distribution). A normality test does not answer this question. With large data sets, trivial deviations from the idea can lead to a small p-value.
 
 \section{Outliers}
 If the outlier test identifies one or more values as being an outlier, we must consider the following
@@ -47,24 +41,6 @@ The problem, of course, is that you can never know for sure which of these possi
 If you don't have a lab policy on removing outliers, here is suggestion: Analyze your data both with and without the suspected outlier. If the results are similar either way, you've got a clear conclusion. If the results are very different, then you are stuck. Without a consistent policy on when you remove outliers, you are likely to only remove them when it helps push the data towards the results you want.
 
 
-\subsection{Grubbs’ Test}
-Grubbs' test is a formal hypothesis test for assessing whether or not a  data set contains an outlier.
-This data set is univariate and approximately normal distributed. This test is designed for assessing one outlier only.  If more outliers are suspected, alternative tests, such as the Tietjen-Moore test, are recommended.
-Hypotheses: Grubbs' test is defined for the hypothesis: 
-\begin{description}
-\item[Ho] :  There are no outliers in the data set  
-\item[Ha] :  There is exactly one outlier in the data set  
-\end{description}
-
-\begin{framed}
-\begin{verbatim}
-install.packages("outliers")
-library(outliers)
-#Package Author : Lukasz Komsta (UMLUB, Poland)
-
-grubbs.test(DAT002)
-\end{verbatim}
-\end{framed}
 
 
 
