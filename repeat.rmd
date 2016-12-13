@@ -2,6 +2,8 @@ Repeat
 =======================
 Another loop structure provided by R is the repeat structure. This structure repeats the commands in its body until a break statement is reached.
 k <- 0;
+
+```{r}
 repeat
 {
 	k <- k + 1;
@@ -9,3 +11,4 @@ repeat
 
 	cat(k, "\n");
 }	
+```
