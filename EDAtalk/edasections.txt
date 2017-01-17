@@ -1,0 +1,12 @@
+clusteringExample     
+dimensionReduction    
+exploratoryGraphs    
+GraphicsDevices       
+hierachicalClustering 
+kmeansClustering     
+PlottingBase          
+PlottingLattice       
+PlottingMath         
+PlottingSystems       
+Principles            
+RColors  
