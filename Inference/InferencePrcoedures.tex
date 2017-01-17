@@ -132,42 +132,9 @@ alternative hypothesis: true difference in means is less than 0
 
 
 Here the pooled t-test and the Welsh t-test give roughly the same results (p-value = 0.00313 and 0.00339, respectively).
-
-
-C. Paired t-tests
-There are many experimental settings where each subject in the study is in both the treatment and control group. For example, in a matched pairs design, subjects are matched in pairs and different treatments are given to each subject in the pair. The outcomes are thereafter compared pair-wise. 
-
-Alternatively, one can measure each subject twice, before and after a treatment. In either of these situations we can’t use two-sample t-tests since the independence assumption is not valid. Instead we need to use a paired t-test. This can be done using the option paired =TRUE.
-
-Ex. A study was performed to test whether cars get better mileage on premium gas than on regular gas. Each of 10 cars was first filled with either regular or premium gas, decided by a coin toss, and the mileage for that tank was recorded. The mileage was recorded again for the same cars using the other kind of gasoline. We use a paired t-test to determine whether cars get significantly better mileage with premium gas.
-
-Below is the relevant R-code:
-
-
-> reg = c(16, 20, 21, 22, 23, 22, 27, 25, 27, 28)
-> prem = c(19, 22, 24, 24, 25, 25, 26, 26, 28, 32)
-> t.test(prem,reg,alternative="greater", paired=TRUE)
-
-
-Paired t-test
-data: prem and reg
-t = 4.4721, df = 9, p-value = 0.000775
-alternative hypothesis: true difference in means is greater than 0
 
 
 
-The results show that the t-statistic is equal to 4.47 and the p-value is 0.00075. Since the p-value is very low, we reject the null hypothesis. There is strong evidence of a mean increase in gas mileage between regular and premium gasoline
-
-
-
-
-
-An engineer is studying the formation of a Portland cement mortar. He is interested
-in the tension bond strength. The tension bond strength (in kgf=cm2) of a randomly chosen specimen
-of the Portland cement batch can be viewed as a random variable. Two formulations are subject of
-a study that the engineer plans to carry out. One is the original one that is currently used and the
-other one is an experimental 'new' one. The tension bond strength data are graphically illustrated
-below:
 
 
 An engineer is studying the formation of a Portland cement mortar. He is interested
